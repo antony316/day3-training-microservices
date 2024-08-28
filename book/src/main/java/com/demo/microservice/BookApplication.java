@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.web.WebApplicationInitializer;
 
 @SpringBootApplication
-public class SinLogApplication extends SpringBootServletInitializer implements
+public class BookApplication extends SpringBootServletInitializer implements
     WebApplicationInitializer {
 
   @Override
@@ -16,9 +16,9 @@ public class SinLogApplication extends SpringBootServletInitializer implements
     return customizerBuilder(builder);
   }
   public static void main(String[] args) {
-    SpringApplication.run(SinLogApplication.class, args);
+    SpringApplication.run(BookApplication.class, args);
   }
   private static SpringApplicationBuilder customizerBuilder(SpringApplicationBuilder builder) {
-    return builder.sources(SinLogApplication.class).bannerMode(Banner.Mode.OFF);
+    return builder.sources(BookApplication.class).bannerMode(Banner.Mode.OFF);
   }
 }

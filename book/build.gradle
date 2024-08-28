@@ -1,0 +1,80 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.7'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+group = 'bca.sosmed'
+version = '1.0.0'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+bootWar {
+    archiveFileName = 'sso-backend.war'
+}
+
+bootJar {
+    archiveFileName = 'sso-backend.jar'
+}
+
+springBoot {
+    buildInfo {
+        properties {
+            artifact = 'sso-backend'
+            name = 'SSO Backend Application'
+            version ='1.0.0'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.10'
+
+    implementation 'com.h2database:h2'
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-gson:0.11.5'
+
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:14.0.0'
+    implementation 'com.vladmihalcea:hibernate-types-52:2.9.2'
+    implementation 'com.jayway.jsonpath:json-path:2.7.0'
+
+    implementation 'net.logstash.logback:logstash-logback-encoder:7.3'
+    implementation 'net.minidev:json-smart:2.4.8'
+
+    implementation 'io.projectreactor:reactor-core:3.1.5.RELEASE'
+
+    runtimeOnly 'org.postgresql:postgresql'
+
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:14.0.0'
+
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+}
+
+//configurations {
+//	configureEach {
+//		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+//		exclude group: 'ch.qos.logback', module: 'logback-classic'
+//		exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+//	}
+//}
