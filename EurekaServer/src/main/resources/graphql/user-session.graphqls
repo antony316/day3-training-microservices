@@ -1,0 +1,16 @@
+input UserSessionRequest {
+    userDomain: String!
+}
+
+type UserSessionResponse {
+    userDomain: String!
+    status: String!
+}
+
+extend type Query {
+    validateUserSession(userSessionRequest : UserSessionRequest) : UserSessionResponse
+}
+
+extend type Subscription {
+    subscribeUserSessionResponse(userDomain : String) : UserSessionResponse
+}

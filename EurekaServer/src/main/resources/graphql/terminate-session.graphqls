@@ -1,0 +1,25 @@
+# Will be removed later
+input TerminateSessionRequest {
+    userDomain : String!
+    status: String!
+    logoutTime: String
+    appId: Int
+}
+
+type TerminateSessionResponse {
+    userDomain: String!
+    status : String!
+    logoutTime: String
+    appId: Int
+}
+
+## Will be removed later
+extend type Query {
+    validateTerminateSession(terminateSessionRequest : TerminateSessionRequest) : TerminateSessionResponse
+    validatePublishAUXStatus(terminateSessionRequest : TerminateSessionRequest) : TerminateSessionResponse
+}
+
+extend type Subscription {
+    subscribeTerminateSessionResponse(userDomain : String) : TerminateSessionResponse
+    subscribeAUXStatusResponse(userDomain : String) : TerminateSessionResponse
+}
